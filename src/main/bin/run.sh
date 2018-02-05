@@ -2,7 +2,7 @@
 #
 JAVA=java
 JAVA_OPTS="-Xms512m -Xmx1536m -XX:PermSize=64M -XX:MaxPermSize=256m -agentlib:jdwp=transport=dt_socket,server=y,suspend=n -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false"
-JARFILE=demo-maven-runnable-jar.jar
+JARFILE=demo-assembly-package.jar
 # resovle links - $0 may be a softlink
 PRG="$0"
 while [ -h "$PRG" ]; do
@@ -27,7 +27,7 @@ if [ -z $WORKERPIDFILE ]
 then WORKERPIDFILE=$PRGDIR/run.pid
 fi
 
-WORKER_JAR_DIR=$PRG
+WORKER_DIR=`cd $PRG_HOME >/dev/null; pwd`
     
 case $1 in
     start)
@@ -39,7 +39,7 @@ case $1 in
             fi
         fi
         
-        nohup $JAVA "-Dworker.jar.dir=${WORKER_JAR_DIR%/*}" $JAVA_OPTS -jar $JARFILE > /dev/null 2>&1 &
+        nohup $JAVA "-Dworker.dir=$WORKER_DIR" $JAVA_OPTS -jar $JARFILE > /dev/null 2>&1 &
 
         if [ $? -eq 0 ]; then
             echo $!

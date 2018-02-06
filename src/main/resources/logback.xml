@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <configuration scan="true" scanPeriod="60 seconds" debug="false">
-    <property name="log_dir" value="logs/demo/"/>
+    <property name="log_dir" value="logs/demo/"/><!-- 根据项目名称修改 -->
     <property name="maxHistory" value="3"/>
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
@@ -70,16 +70,17 @@
         </rollingPolicy>
     </appender>
 
+    <!-- 根据实际情况修改包名 -->
     <logger name="org.inh3rit.demo.debug" level="DEBUG"/>
     <logger name="org.inh3rit.demo.info" level="INFO"/>
     <logger name="org.inh3rit.demo.warn" level="WARN"/>
     <logger name="org.inh3rit.demo.error" level="ERROR"/>
 
     <root level="debug">
-        <appender-ref ref="STDOUT"/>
         <appender-ref ref="ERROR"/>
         <appender-ref ref="INFO"/>
         <appender-ref ref="WARN"/>
         <appender-ref ref="DEBUG"/>
+        <appender-ref ref="STDOUT"/><!-- 生产环境删除 -->
     </root>
 </configuration>

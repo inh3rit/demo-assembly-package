@@ -2,8 +2,8 @@
 #
 JAVA=java
 JAVA_OPTS="-Xms512m -Xmx1536m -XX:PermSize=64M -XX:MaxPermSize=256m -agentlib:jdwp=transport=dt_socket,server=y,suspend=n -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false"
-JARFILE=demo-assembly-package.jar
-# resovle links - $0 may be a softlink
+JARFILE=demo-assembly-package.jar #根据jar包名称修改
+
 PRG="$0"
 while [ -h "$PRG" ]; do
     ls=`ls -ld "$PRG"`
@@ -15,7 +15,7 @@ while [ -h "$PRG" ]; do
     fi
 done
 
-# Get standard enviroment variables
+# Get standard environment variables
 PRGDIR=`dirname "$PRG"`
 [ -z "$PRG_HOME" ] && PRG_HOME=`cd "$PRGDIR/.." >/dev/null; pwd`
 # Ensure that any user defined CLASSPATH variables are not used onstartup,

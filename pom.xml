@@ -54,7 +54,7 @@
                         <manifest><!-- 生成MANIFEST.MF的设置 -->
                             <addClasspath>true</addClasspath><!-- 为依赖包添加路径, 这些路径会写在MANIFEST文件的Class-Path下 -->
                             <classpathPrefix>../lib/</classpathPrefix>
-                            <mainClass>org.inh3rit.demo.Main</mainClass><!-- jar启动入口类-->
+                            <mainClass>org.inh3rit.demo.Main</mainClass><!-- jar启动入口类,根据实际启动类修改-->
                         </manifest>
                         <manifestEntries>
                             <Class-Path>../lib/ ../conf/</Class-Path><!-- 在Class-Path下添加配置文件的路径 -->

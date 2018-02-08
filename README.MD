@@ -11,7 +11,7 @@ file:///src/main/bin/run.sh
 2.修改(modify)
 ---
 
-- file:///pom.xml
+- file:///pom.xml(参考demo的pom文件)
 
     ```
     <descriptors>

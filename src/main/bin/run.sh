@@ -41,6 +41,9 @@ case $1 in
         
         nohup $JAVA "-Dworker.dir=$WORKER_DIR" $JAVA_OPTS -jar $JARFILE > /dev/null 2>&1 &
 
+        echo
+        echo command: $JAVA "-Dworker.dir=$WORKER_DIR" $JAVA_OPTS -jar $JARFILE
+
         if [ $? -eq 0 ]; then
             echo $!
             if  echo -n $! > "$WORKERPIDFILE"  
